@@ -16,9 +16,11 @@ trait IndonesiaGender {
 
 enum Gender: string  implements sayHello{
     use IndonesiaGender;
-    
+
     case Male = "Mr.";
     case Female = "Mrs.";
+
+    const Unknown = "Unknown";
 
     static function fromIndonesia(string $value): Gender {
         return match($value) {
@@ -64,3 +66,4 @@ var_dump(Gender::Female->inIndonesia());
 var_dump(Gender::fromIndonesia("Tuan"));
 var_dump(Gender::fromIndonesia("Nyonya"));
 // var_dump(Gender::fromIndonesia("salah")); //error
+var_dump(Gender::Unknown);
